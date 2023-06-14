@@ -1,0 +1,77 @@
+{
+    "GameType": "SimulatedYatzy",
+    "Players": [
+        {
+            "Name": "Henry",
+            "Scores": [
+                {
+                    "Name": "SS",
+                    "Value": 195,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Y",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                }
+            ],
+            "TotalScore": 195,
+            "Input": {},
+            "Output": {}
+        },
+        {
+            "Name": "Sven",
+            "Scores": [
+                {
+                    "Name": "SS",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Y",
+                    "Value": 100,
+                    "Used": false,
+                    "SetScore": null
+                }
+            ],
+            "TotalScore": 100,
+            "Input": {},
+            "Output": null
+        }
+    ],
+    "ScoreLogic": {
+        "Dices": [
+            {
+                "Locked": true,
+                "Val": 1,
+                "Max": 6
+            },
+            {
+                "Locked": false,
+                "Val": 3,
+                "Max": 6
+            },
+            {
+                "Locked": true,
+                "Val": 1,
+                "Max": 6
+            },
+            {
+                "Locked": true,
+                "Val": 1,
+                "Max": 6
+            },
+            {
+                "Locked": false,
+                "Val": 3,
+                "Max": 6
+            }
+        ]
+    },
+    "RollCount": 3,
+    "Rounds": 14,
+    "UseScores": false
+}

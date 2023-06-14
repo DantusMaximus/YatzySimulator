@@ -1,0 +1,221 @@
+{
+    "GameType": "Yatzy",
+    "Players": [
+        {
+            "Name": "Henry",
+            "Scores": [
+                {
+                    "Name": "One",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Two",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Three",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Four",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Five",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Six",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Pair",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "ToK",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "FoK",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "House",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "SS",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "LS",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "C",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Y",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                }
+            ],
+            "TotalScore": 195,
+            "Input": {},
+            "Output": {}
+        },
+        {
+            "Name": "Sven",
+            "Scores": [
+                {
+                    "Name": "One",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Two",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Three",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Four",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Five",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Six",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Pair",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "ToK",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "FoK",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "House",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "SS",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "LS",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "C",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                },
+                {
+                    "Name": "Y",
+                    "Value": 0,
+                    "Used": false,
+                    "SetScore": null
+                }
+            ],
+            "TotalScore": 100,
+            "Input": {},
+            "Output": null
+        }
+    ],
+    "ScoreLogic": {
+        "Dices": [
+            {
+                "Locked": false,
+                "Val": 1,
+                "Max": 6
+            },
+            {
+                "Locked": false,
+                "Val": 1,
+                "Max": 6
+            },
+            {
+                "Locked": false,
+                "Val": 1,
+                "Max": 6
+            },
+            {
+                "Locked": false,
+                "Val": 1,
+                "Max": 6
+            },
+            {
+                "Locked": false,
+                "Val": 1,
+                "Max": 6
+            }
+        ]
+    },
+    "RollCount": 3,
+    "ScoreCount": 0,
+    "Rounds": 14
+}

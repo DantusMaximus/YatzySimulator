@@ -1,0 +1,28 @@
+{
+        "GameType": "SimulatedYatzy",
+        "Players": [
+            {
+                "Name": "Sven",
+                "AIScoreMethod": "AIScoreMethodType.SmallStraight",
+                "Output": "output"
+            },
+            {
+                "Name": "Henry",
+                "AIScoreMethod": "AIScoreMethodType.Yatzy",
+                "Output": "output"
+            }
+        ],
+        "Rounds" : 1000,
+        "ScoreLogic" : "YatzyScoreLogic",
+        "ScoreOptions": ["C","Y"],
+        "ScoreMethods": ["sl.Chance","sl.Yatzy"],
+        "UseScores": [false]
+        ,
+        "DiceData" : {
+            "Count" : 5,
+            "Max" : 6,
+            "Values": [1,1,1,1,1],
+            "Locked": [false,false,false,false,false]
+        }
+
+}
