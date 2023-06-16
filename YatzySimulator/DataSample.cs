@@ -12,35 +12,33 @@ public class DataSample
     public List<AIScoreMethodType> ScoringTypeData { get; set; }
     public SampleType SampleType { get; set; }
     public int Accuracy { get; set; }
-    public int StartVal { get; set; }
-    public int EndVal { get; set; }
-    public DataSample(List<string> scoreOptions)
+    public int DomainCount { get; set; }
+    public DataSample(SampleType type, List<string> scoreOptions, int domainCount, int accuracy, int dc, int rc, int r)
     {
+        SampleType = type;
         ScoreOptionsData = scoreOptions;
         Iteration = new List<double>();
         ScoreData = new List<List<double>>();
+        Accuracy = accuracy;
+        DomainCount = domainCount;
+        DiceCount = dc;
+        RollCount = rc;
+        Rounds = r;
     }
     public void CollectItteration(IGame game)
     {
         if (Iteration.Count == 0)
         {
-
-            foreach (var p in game.Players)
-            {
-                for (int i = 0; i < p.Scores.Count; i++)
-                {
-
-                    Iteration.Add(p.Scores[i].Value);
-                }
+            foreach(var s in game.Players[0].Scores){
+                Iteration.Add(0.0);
             }
-            return;
         }
         foreach (var p in game.Players)
         {
             for (int i = 0; i < p.Scores.Count; i++)
             {
-                Iteration[i] += p.Scores[i].Value;
-                i++;
+                var s = (SimulatedScore)p.Scores[i];
+                Iteration[i] += s.TimesGotten;
             }
         }
     }

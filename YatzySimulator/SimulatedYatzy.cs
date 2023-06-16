@@ -6,6 +6,7 @@ public class SimulatedYatzy : IGame
     public string GameType { get; set; }
     public List<IPlayer> Players { get ; set ; }
     public IScoreLogic ScoreLogic { get ; set ; }
+    public int DiceCount { get; set; }
     public int RollCount { get ; set ; }
     public int Rounds { get ; set ; }
     public bool UseScores{get;set;}
@@ -17,6 +18,7 @@ public class SimulatedYatzy : IGame
         var dices = new List<IDice>();
         for(int i = 1; i<=diceCount;i++){ dices.Add(new Dice(false,1,diceMax));}
         ScoreLogic = new YatzyScoreLogic(dices);
+        DiceCount = diceCount;
         RollCount = rollCount;
         Rounds = rounds;
         UseScores = useScores;

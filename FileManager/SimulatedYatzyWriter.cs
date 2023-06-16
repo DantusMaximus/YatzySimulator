@@ -32,39 +32,82 @@ public class SimulatedYatzyWriter : IGameWriter
     public void Sample(string folder, DataSample dataSample)
     {
         var time = DateTime.Now.ToString("yyyy-dd-MM");
-        using (StreamWriter sr = new StreamWriter(folder + @"\" + time + "Tests" + ".txt", true))
+        using (StreamWriter sr = new StreamWriter(folder + @"\" + time + "Tests" + ".txt"))
         {
-            if (dataSample.SampleType == SampleType.DiceCount) { DCSample(sr, dataSample); }
-            if (dataSample.SampleType == SampleType.RollCount) { RCSample(sr, dataSample); }
-            if (dataSample.SampleType == SampleType.Rounds) { RSample(sr, dataSample); }
+            switch (dataSample.SampleType)
+            {
+                case SampleType.DiceCount:
+                    DCSample(sr, dataSample);
+                    break;
+                case SampleType.RollCount:
+                    RCSample(sr, dataSample);
+                    break;
+                case SampleType.Rounds:
+                    RSample(sr, dataSample);
+                    break;
+            }
         }
     }
     public void DCSample(StreamWriter sr, DataSample dataSample)
     {
         string append = "";
-        int dc = dataSample.StartVal;
         int i = 0;
         foreach (var sd in dataSample.ScoreData)
         {
-            append += dataSample.StartVal + i + ",";
-            append += dataSample.RollCount + ",";
-            append += dataSample.Rounds + "," + ":";
-            for (int j = 0; i < dataSample.ScoreData.Count; j++)
+            var row = "";
+            row += dataSample.DiceCount + i++ + ".";
+            row += dataSample.RollCount + ".";
+            row += dataSample.Rounds + "|";
+            for (int j = 0; j < dataSample.ScoreOptionsData.Count; j++)
             {
-                append += $"{dataSample.ScoreOptionsData[j]},{sd[j]}:";
+                var result = String.Format("{0:G4}", sd[j]);
+                row += $"{dataSample.ScoreOptionsData[j]}:{result};";
             }
-            append += System.Environment.NewLine;
-            i++;
+            append += row + Environment.NewLine;
         }
         append.Trim(':');
         sr.WriteLineAsync(append);
     }
     public void RCSample(StreamWriter sr, DataSample dataSample)
     {
+        string append = "";
+        int i = 0;
+        foreach (var sd in dataSample.ScoreData)
+        {
+            var row = "";
+            row += dataSample.DiceCount + ".";
+            row += dataSample.RollCount + i++ + ".";
+            row += dataSample.Rounds + "|";
+            for (int j = 0; j < dataSample.ScoreOptionsData.Count; j++)
+            {
+                var result = String.Format("{0:G4}", sd[j]);
+                row += $"{dataSample.ScoreOptionsData[j]}:{result};";
+            }
+            append += row + Environment.NewLine;
+        }
+        append.Trim(':');
+        sr.WriteLineAsync(append);
 
     }
     public void RSample(StreamWriter sr, DataSample dataSample)
     {
+        string append = "";
+        int i = 0;
+        foreach (var sd in dataSample.ScoreData)
+        {
+            var row = "";
+            row += dataSample.DiceCount + ".";
+            row += dataSample.RollCount + ".";
+            row += dataSample.Rounds + i++ + "|";
+            for (int j = 0; j < dataSample.ScoreOptionsData.Count; j++)
+            {
+                var result = String.Format("{0:G4}", sd[j]);
+                row += $"{dataSample.ScoreOptionsData[j]}:{result};";
+            }
+            append += row + Environment.NewLine;
+        }
+        append.Trim(':');
+        sr.WriteLineAsync(append);
 
     }
 

@@ -13,7 +13,7 @@ public class Output : IOut
        // {
             foreach (var p in game.Players)
             {
-                //if(p.GetType() == typeof(AIPlayer)){continue;}
+                if(p.GetType() == typeof(AIPlayer)){continue;}
                 AIPlayer aip = (AIPlayer)p;
                 if (aip.ScoringType == AIScoreMethodType.Yatzy)
                 {
