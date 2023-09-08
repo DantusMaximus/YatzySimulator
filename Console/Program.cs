@@ -5,7 +5,7 @@ using FileManager;
 List<IPlayer> players = new List<IPlayer>();
 var output = new Output();
 players.Add(new AIPlayer("Henry", AIScoreMethodType.SmallStraight, output));
-players.Add(new AIPlayer("Sven", AIScoreMethodType.Yatzy, null));
+players.Add(new AIPlayer("Sven", AIScoreMethodType.Yatzy, output));
 //Studera  DiceCount eller RollCount eller Rounds
 int dc = 5;
 int rc = 3;
@@ -14,7 +14,7 @@ IGame game = new SimulatedYatzy(players, dc, 6, rc, r, false);
 game.RunGame();
 var smw1 = new SimulatedYatzyWriter(@"YatzyLib\Yatzy\SavedGame.json");
 var sampler = new DataSampler(game);
-var sample = sampler.CollectDataSample(SampleType.Rounds,100,3,5);
+var sample = sampler.CollectDataSample(SampleType.DiceCount,100,5,100);
 smw1.Sample(@"..\YatzySimulator\SampleData",sample);
 //var smr = new SimulatedYatzyReader("../YatzySimulator/SaveFile.json");
 //var game = smr.Read();

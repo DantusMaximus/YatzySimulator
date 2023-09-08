@@ -14,24 +14,27 @@ public class DataSample
     public int Accuracy { get; set; }
     public int StartVal { get; set; }
     public int EndVal { get; set; }
-    public DataSample(List<string> scoreOptions)
+    public int PlayerCount { get; set; }
+    public DataSample(SampleType sampleType, List<string> scoreOptions, int playerCount, int startVal, int diceCount, int rollCount, int rounds)
     {
+        SampleType = sampleType;
+        PlayerCount = playerCount;
         ScoreOptionsData = scoreOptions;
         Iteration = new List<double>();
         ScoreData = new List<List<double>>();
+        StartVal = startVal;
+        DiceCount = diceCount;
+        RollCount = rollCount;
+        Rounds = rounds;
     }
     public void CollectItteration(IGame game)
     {
         if (Iteration.Count == 0)
         {
 
-            foreach (var p in game.Players)
+            for (int i = 0; i < game.Players.Count; i++)
             {
-                for (int i = 0; i < p.Scores.Count; i++)
-                {
-
-                    Iteration.Add(p.Scores[i].Value);
-                }
+                Iteration.Add(0.0);
             }
             return;
         }
@@ -40,7 +43,6 @@ public class DataSample
             for (int i = 0; i < p.Scores.Count; i++)
             {
                 Iteration[i] += p.Scores[i].Value;
-                i++;
             }
         }
     }
@@ -50,9 +52,12 @@ public class DataSample
         {
             Iteration[i] /= accuracy;
         }
-        var result = new List<double>();
-        foreach (var v in Iteration) { result.Add(v); }
-        ScoreData.Add(result);
+        var res = new List<double>();
+        foreach (var v in Iteration)
+        {
+            res.Add(v);
+        }
+        ScoreData.Add(res);
         Iteration.Clear();
     }
 }

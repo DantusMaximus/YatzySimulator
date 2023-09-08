@@ -35,6 +35,11 @@ public class AIPlayer : IPlayer
         }
         timesRolled++;
     }
+        public void GameOver(IGame game)
+    {
+        if(Output == null){return;}
+        Output.GameOver(game);
+    }
     
 }
 public class AIInput : IIn

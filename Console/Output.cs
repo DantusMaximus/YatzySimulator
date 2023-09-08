@@ -13,17 +13,9 @@ public class Output : IOut
        // {
             foreach (var p in game.Players)
             {
-                //if(p.GetType() == typeof(AIPlayer)){continue;}
-                AIPlayer aip = (AIPlayer)p;
-                if (aip.ScoringType == AIScoreMethodType.Yatzy)
-                {
-                    Console.WriteLine(p.Name + "\tScore:" + p.TotalScore + "\tYatzys:" + p.TotalScore / 50);
-                }
-                if (aip.ScoringType == AIScoreMethodType.SmallStraight)
-                {
-                    Console.WriteLine(p.Name + "\tScore:" + p.TotalScore + "\tStraights:" + p.TotalScore / 15);
-                }
-
+                if(p.GetType() == typeof(AIPlayer)){continue;}
+                ConsolePlayer cp = (ConsolePlayer)p;
+                Console.WriteLine($"{cp.Name} got {cp.TotalScore} total score");
             }
         //}
         Used = true;
