@@ -14,18 +14,16 @@ public class DataSample
     public int Accuracy { get; set; }
     public int StartVal { get; set; }
     public int EndVal { get; set; }
-    public int PlayerCount { get; set; }
-    public DataSample(SampleType sampleType, List<string> scoreOptions, int playerCount, int startVal, int diceCount, int rollCount, int rounds)
+    public DataSample(SampleType sampleType, List<string> scoreOptions, int diceCount, int rollCount, int rounds, int startVal)
     {
-        SampleType = sampleType;
-        PlayerCount = playerCount;
-        ScoreOptionsData = scoreOptions;
-        Iteration = new List<double>();
-        ScoreData = new List<List<double>>();
-        StartVal = startVal;
         DiceCount = diceCount;
         RollCount = rollCount;
         Rounds = rounds;
+        StartVal = startVal;
+        SampleType = sampleType;
+        ScoreOptionsData = scoreOptions;
+        Iteration = new List<double>();
+        ScoreData = new List<List<double>>();
     }
     public void CollectItteration(IGame game)
     {
@@ -36,7 +34,6 @@ public class DataSample
             {
                 Iteration.Add(0.0);
             }
-            return;
         }
         foreach (var p in game.Players)
         {

@@ -34,17 +34,33 @@ public class SimulatedYatzyWriter : IGameWriter
         var time = DateTime.Now.ToString("yyyy-dd-MM");
         using (StreamWriter sr = new StreamWriter(folder + @"\" + time + GetSampleName(dataSample) + ".txt", true))
         {
-            if (dataSample.SampleType == SampleType.DiceCount) { DCSample(sr, dataSample); }
-            if (dataSample.SampleType == SampleType.RollCount) { RCSample(sr, dataSample); }
-            if (dataSample.SampleType == SampleType.Rounds) { RSample(sr, dataSample); }
+            switch (dataSample.SampleType)
+            {
+                case SampleType.DiceCount:
+                    DCSample(sr, dataSample);
+                    break;
+                case SampleType.RollCount:
+                    RCSample(sr, dataSample);
+                    break;
+                case SampleType.Rounds:
+                    RSample(sr, dataSample);
+                    break;
+            }
         }
     }
     private string GetSampleName(DataSample dataSample)
     {
         var r = "";
-        if (dataSample.SampleType == SampleType.DiceCount) { r = "DiceCountSample"; }
-        if (dataSample.SampleType == SampleType.RollCount) { r = "RollCountSample"; }
-        if (dataSample.SampleType == SampleType.Rounds) { r = "RoundsSample"; }
+        switch(dataSample.SampleType){
+            case SampleType.DiceCount: r = "DiceCountSample";
+            break;
+            case SampleType.RollCount: r = "RollCountSample";
+            break;
+            case SampleType.Rounds: r = "RoundsSample";
+            break;
+            default: throw new NotImplementedException();
+
+        }
         return r;
     }
     public void DCSample(StreamWriter sr, DataSample dataSample)
@@ -97,7 +113,6 @@ public class SimulatedYatzyWriter : IGameWriter
             append += dataSample.DiceCount + ",";
             append += dataSample.RollCount + ",";
             append += dataSample.StartVal + i + ":";
-            var results = SumPlayerResults(sd, dataSample.ScoreOptionsData.Count, dataSample.PlayerCount);
             for (int j = 0; j < dataSample.ScoreOptionsData.Count; j++)
             {
                 append += $"{dataSample.ScoreOptionsData[j]},{sd[j]}:";
@@ -107,18 +122,5 @@ public class SimulatedYatzyWriter : IGameWriter
         }
         append.Trim(':');
         sr.WriteLineAsync(append);
-    }
-    private List<double> SumPlayerResults(List<double> ds, int cdc, int pc)
-    {
-        var r = new List<double>();
-        for (int i = 0; i < cdc; i++)
-        {
-            r.Add(0.0);
-        }
-        for (int i = 0; i < ds.Count; i++)
-        {
-            r[i % cdc] += ds[i];
-        }
-        return r;
     }
 }

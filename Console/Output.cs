@@ -14,8 +14,9 @@ public class Output : IOut
             foreach (var p in game.Players)
             {
                 if(p.GetType() == typeof(AIPlayer)){continue;}
-                ConsolePlayer cp = (ConsolePlayer)p;
-                Console.WriteLine($"{cp.Name} got {cp.TotalScore} total score");
+                var aip = (ConsolePlayer)p;
+                throw new NotImplementedException();
+
             }
         //}
         Used = true;
