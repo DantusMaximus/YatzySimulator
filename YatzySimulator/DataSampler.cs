@@ -47,7 +47,7 @@ public class DataSampler
 
     private DataSample CollectRollCountDataSample(int accuracy, int startVal, int endVal)
     {
-        var ds = new DataSample(SampleType.Rounds, ScoreOptions , DiceCount, RollCount, Rounds, startVal);
+        var ds = new DataSample(SampleType.RollCount, ScoreOptions , DiceCount, RollCount, Rounds, startVal);
         for (int rc = startVal; rc <= endVal; rc++)
         {
             IGame game = new SimulatedYatzy(Players, DiceCount, 6, rc, Rounds, false);
@@ -65,7 +65,7 @@ public class DataSampler
 
     private DataSample CollectDCDataSample(int accuracy, int startVal, int endVal)
     {
-        var ds = new DataSample(SampleType.Rounds, ScoreOptions , DiceCount, RollCount, Rounds, startVal);
+        var ds = new DataSample(SampleType.DiceCount, ScoreOptions , DiceCount, RollCount, Rounds, startVal);
         for (int dc = startVal; dc <= endVal; dc++)
         {
             IGame game = new SimulatedYatzy(Players, dc, 6, RollCount, Rounds, false);

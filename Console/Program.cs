@@ -13,7 +13,7 @@ int r = 14;
 IGame game = new SimulatedYatzy(players, dc, 6, rc, r, false);
 var smw1 = new SimulatedYatzyWriter(@"YatzyLib\Yatzy\SavedGame.json");
 var sampler = new DataSampler(game);
-var sample = sampler.CollectDataSample(SampleType.Rounds,100,14,14);
+var sample = sampler.CollectDataSample(SampleType.RollCount,1000,3,10);
 smw1.Sample(@"..\YatzySimulator\SampleData",sample);
 //var smr = new SimulatedYatzyReader("../YatzySimulator/SaveFile.json");
 //var game = smr.Read();
